@@ -73,7 +73,7 @@ class Main
 			var remoteDomain = remoteOrigin.substr(remoteOrigin.indexOf("://") + 3), if (remoteDomain.indexOf(":") != -1) remoteDomain = remoteDomain.substr(0, remoteDomain.indexOf(":"));
 			
 			// AS2 only uses the superdomain when generating the channelname
-			var remoteSuperDomain = remoteDomain.split(".").reverse().splice(0, 2).reverse().join(".");
+			var remoteSuperDomain = remoteDomain.split(".").slice(-2).join(".");
 			
 			// the sending channel has the domain prepended so that only this domain can receive the message
 			var sendingChannelName =  remoteSuperDomain + ":" + channel + "_" +  (isHost ? "_consumer" : "_provider");
